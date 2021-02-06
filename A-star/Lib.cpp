@@ -222,7 +222,7 @@ std::vector<std::pair<int, int>> create_list(int** matrix, int rows, int cols, s
 						opened[opened.size() - 1].set_weight(current_cell.get_g() + ((i == current_cell.get_pos().first || j == current_cell.get_pos().second) ? 10 : 14), finish);
 						opened[opened.size() - 1].set_parent(current_cell.get_pos());
 					}
-					else if ((((i == current_cell.get_pos().first || j == current_cell.get_pos().second) ? 10 : 14) + current_cell.get_g()) < find_pos(opened, make_pair(i, j))) {
+					else if ((((i == current_cell.get_pos().first || j == current_cell.get_pos().second) ? 10 : 14) + current_cell.get_g()) < opened[find_pos(opened, make_pair(i, j))].get_g()) {
 						found_pos = find_pos(opened, make_pair(i, j));
 						opened[found_pos].set_weight(current_cell.get_g() + ((i == current_cell.get_pos().first || j == current_cell.get_pos().second) ? 10 : 14), finish);
 						opened[found_pos].set_parent(current_cell.get_pos());
